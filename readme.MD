@@ -1,5 +1,9 @@
 # GSW TEST Backend
 
+### Informações
+
+Servidor está rodando na porta 3000
+
 ### Tecnologias
 
 Todas tecnologias que utilizada são open source:
