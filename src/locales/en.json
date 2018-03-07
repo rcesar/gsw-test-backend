@@ -1,0 +1,12 @@
+{
+    "validation": {
+        "id_not_exists": "_id don't exists in database",
+        "user_pass_not_provided":"User or password not provided",
+        "user_pass_incorrect":"User or password incorrect",
+        "balance_insuficient":"Balance insuficient for this operation",
+        "not_available_money_bills":"This value not available, only money bills 10, 20, 50 and 100 is available",
+        "token_wrong":"Failed to authenticate token. Verify this data",
+        "token_not_provided":"No token provided",
+        "user_already_exists":"Already Account with user"
+    }
+}

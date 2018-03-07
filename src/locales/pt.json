@@ -1,0 +1,12 @@
+{
+    "validation":{
+        "id_not_exists":"O _id não existe no banco de dados.",
+        "user_pass_not_provided": "Usuário ou senha não informados.",
+        "user_pass_incorrect": "Usuário ou senha incorretos.",
+        "balance_insuficient": "Saldo na conta é insuficiente para essa operação.",
+        "not_available_money_bills": "Não é possível sacar o valor solicitado, só temos disponiveis notas de 10, 20, 30, 50 e 100 reais.",
+        "token_wrong": "Falha na autenticação do token, verifique a informação",
+        "token_not_provided": "O token não foi enviado",
+        "user_already_exists": "Ja existe uma conta com esse usuário"
+    }
+}
