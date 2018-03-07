@@ -8,5 +8,8 @@
         "token_wrong":"Failed to authenticate token. Verify this data",
         "token_not_provided":"No token provided",
         "user_already_exists":"Already Account with user"
+    },
+    "connection":{
+        "many_operations_in_proccess":"Route in busy, please try again later"
     }
 }

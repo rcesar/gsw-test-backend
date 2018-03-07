@@ -8,5 +8,8 @@
         "token_wrong": "Falha na autenticação do token, verifique a informação",
         "token_not_provided": "O token não foi enviado",
         "user_already_exists": "Ja existe uma conta com esse usuário"
+    },
+    "connection":{
+        "many_operations_in_proccess": "Rota está ocupada, por favor tente novamente mais tarde"
     }
 }

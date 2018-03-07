@@ -1,5 +1,6 @@
 import withdrawService from '../services/withdraw';
 import i18n from 'i18n';
+import MaxConcurrent from '../services/maxConcurrent';
 
 class WithdrawsController {
   constructor(Withdraw, Account) {
@@ -27,11 +28,15 @@ class WithdrawsController {
       try{
         const user = await this.Account.findOne({_id:req.userId});
 
-        if(req.body.value > user.balance)
+        if(req.body.value > user.balance){
+          MaxConcurrent.releaseConnection();
           return res.status(400).send({ message: i18n.__('validation').balance_insuficient, code:'balance_insuficient'});          
+        }
         
-        if (!withdrawService.validateValue(req.body.value))
+        if (!withdrawService.validateValue(req.body.value)){
+          MaxConcurrent.releaseConnection();
           return res.status(400).send({ message: i18n.__('validation').not_available_money_bills, code:'not_available_money_bills'})
+        }
         
         const notes = withdrawService.getNotes(req.body.value);
 
@@ -40,9 +45,11 @@ class WithdrawsController {
         await withdraw.save();
         user.balance -= req.body.value;
         await user.save();
-        res.status(201).send({newBalance:user.balance, withdrawValue:req.body.value, notes});
+        MaxConcurrent.releaseConnection();
+        return res.status(201).send({newBalance:user.balance, withdrawValue:req.body.value, notes});
       } catch (error){ 
-        res.status(400).send({ err: error.message });
+        MaxConcurrent.releaseConnection();
+        return res.status(400).send({ err: error.message });
       }
   }
 };
